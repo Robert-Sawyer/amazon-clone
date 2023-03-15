@@ -4,7 +4,8 @@ const nextConfig = {
   images: {
     domains: [
         '1000logos.net',
-        'links.papareact.com'
+        'links.papareact.com',
+        'fakestoreapi.com'
     ],
   }
 }
