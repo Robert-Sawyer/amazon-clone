@@ -1,42 +1,50 @@
-import React from "react";
 import Image from "next/image";
-import { SearchIcon, GlobeAltIcon, MenuIcon, UserCircleIcon, UsersIcon } from '@heroicons/react/solid'
+import React from "react";
+import { MenuIcon, SearchIcon, ShoppingCartIcon } from '@heroicons/react/outline'
 
-const Header = () =>{
+const Header = () => {
 
     return (
-        <header className='sticky shadow-md top-o z-50 p-5 bg-white grid grid-cols-3 md:px-10'>
-            {/* Left */}
-            <div className='relative flex items-center h-10 cursor-pointer w-full'>
-                <Image
-                    src='https://1000logos.net/wp-content/uploads/2017/08/Airbnb-logo.jpg'
-                    layout='fill'
-                    objectFit='contain'
-                    objectPosition='left'
-                />
-            </div>
+        <header>
+            <div className='flex items-center bg-amazon_blue p-1 flex-grow py-2'>
+                <div className='mt-3.5 flex items-center flex-grow sm:flex-grow-0 mx-2.5'>
+                    <Image
+                        src='https://links.papareact.com/f90'
+                        width={130}
+                        height={30}
+                        objectFit='contain'
+                        className='cursor-pointer'
+                    />
+                </div>
 
-            {/* Center */}
-            <div className='flex items-center py-2 md:border-2 rounded-full md:shadow-sm'>
-                <input
-                    type='text'
-                    placeholder='Start your search'
-                    className='pl-5 bg-transparent outline-none flex-grow text-sm text-gray-600 placeholder-gray-400'
-                />
-                <SearchIcon className='hidden md:inline-flex md:mx-2 h-8 bg-red-400 text-white p-2 rounded-full cursor-pointer'/>
-            </div>
+                <div
+                    className='hidden sm:flex items-center h-10 rounded-md flex-grow
+                    cursor-pointer bg-yellow-400 hover:bg-yellow-500'
+                >
+                    <input
+                        className='p-2 h-full w-6 flex-grow flex-shrink
+                        rounded-l-md focus:outline-none px-4'
+                        type='text'/>
+                    <SearchIcon className='h-12 p-4'/>
+                </div>
 
-            {/* Right */}
-            <div className='flex items-center space-x-4 justify-end text-gray-500'>
-                <p className='hidden md:inline cursor-pointer'>Become a host</p>
-                <GlobeAltIcon className='h-6 cursor-pointer' />
-
-                <div className='flex items-center space-x-2 border-2 p-2 rounded-full'>
-                    <MenuIcon className='h-6'/>
-                    <UserCircleIcon className='h-6'/>
+                <div className='text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap'>
+                    <div className='link'>
+                        <p>Hello Robert</p>
+                        <p className='boldParagraph'>Account & List</p>
+                    </div>
+                    <div className='link'>
+                        <p>Returns</p>
+                        <p className='boldParagraph'>& Orders</p>
+                    </div>
+                    <div className='link relative flex items-center'>
+                        <span className='absolute top-0 right-0 md:right-10 h-4 w-4
+                        bg-yellow-400 text-center rounded-full text-black font-bold'>0</span>
+                        <ShoppingCartIcon className='h-10'/>
+                        <p className='boldParagraph hidden mt-2 md:inline'>Basket:</p>
+                    </div>
                 </div>
             </div>
-
         </header>
     )
 }
