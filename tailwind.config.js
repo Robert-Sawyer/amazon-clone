@@ -8,10 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        amazon_blue: {
-          light: "#232F3E",
-          DEFAULT: "#131921",
-        },
+        amazon_black: "#131921",
+        amazon_light: "#232F3E",
       },
     },
   },
