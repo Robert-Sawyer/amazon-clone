@@ -1,19 +1,31 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react';
+import {Carousel} from 'react-responsive-carousel'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Banner = () => {
 
     return (
-        <div className='relative h-[300px] sm:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px]'>
-            <Image src='https://links.papareact.com/0fm' layout='fill' objectFit='cover'/>
-            <div className='absolute top-1/2 w-full text-center'>
-                <p className='text-sm sm:text-lg'>Not sure where to go? Perfect.</p>
-                <button
-                    className='text-purple-500 bg-white px-10 py-4 shadow-md rounded-full font-bold
-                    my-3 hover:shadow-xl active:scale-90 transition duration-150'>
-                    I'm flexible
-                </button>
-            </div>
+        <div className='relative'>
+            <div className='absolute w-full h-32 bg-gradient-to-t from-white to-transparent bottom-0 z-20'/>
+            <Carousel
+                autoPlay
+                infiniteLoop
+                showStatus={false}
+                showIndicators={false}
+                showThumbs={false}
+                interval={5000}
+            >
+                <div>
+                    <img alt='' src='https://links.papareact.com/gi1' loading='lazy'/>
+                </div>
+                <div>
+                    <img alt='' src='https://links.papareact.com/6ff' loading='lazy'/>
+                </div>
+                <div>
+                    <img alt='' src='https://links.papareact.com/7ma' loading='lazy'/>
+                </div>
+
+            </Carousel>
         </div>
     )
 }
