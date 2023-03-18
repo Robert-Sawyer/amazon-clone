@@ -1,27 +1,29 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Image from "next/image";
-import {StarIcon} from '@heroicons/react/solid'
 import Currency from 'react-currency-formatter';
+import Rating from "./Rating/Rating";
 
-const MIN_RATING = 1;
-const MAX_RATING = 5;
+const Product = ({ id, title, description, price, category, image}) => {
+    const [rating, setRating] = useState(50);
 
-const Product = ({key, id, title, description, price, category, image}) => {
-    const rating = Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING;
-    // console.log('rating',Array(rating))
-    const hasPrime = Math.random() < 0.5;
+    useEffect(() => {
+        setRating(Math.floor(Math.random() * 100) + 1)
+    }, []);
 
     return (
-        <div className='relative flex flex-col m-5 bg-white z-30 p-10'>
+        <div key={id} className='relative flex flex-col m-5 bg-white z-30 p-10'>
             <p className='absolute top-2 right-2 text-xs italic text-gray-400'>{category}</p>
             <Image style={{alignSelf: 'center', maxHeight: '220px'}} src={image} width={200} height={200}
                    objectFit='contain' alt=''/>
 
             <h4 className='my-3'>{title}</h4>
             <div className='flex'>
-                {Array(rating).fill(rating).map((_, i) => (
-                    <StarIcon key={i} className='h-5 text-yellow-500'/>
-                ))}
+                <Rating
+                    ratingInPercent={rating}
+                    iconSize="m"
+                    showOutOf={true}
+                    enableUserInteraction={false}
+                />
             </div>
 
             <p className='text-xs my-2 line-clamp-2'>{description}</p>
@@ -30,13 +32,13 @@ const Product = ({key, id, title, description, price, category, image}) => {
                 <Currency quantity={price} currency='GBP'/>
             </div>
 
-            {hasPrime && (
-                <div className='flex items-center space-x-2 -mt-5'>
-                    <img className='w-12' src='https://links.papareact.com/fdw' alt=''/>
-                    <p className='text-xs text-gray-500'>FREE Next-day delivery</p>
-                </div>
-            )}
-            <button className='mt-auto'>Add to Basket</button>
+            {/*{hasPrime && (*/}
+            {/*    <div className='flex items-center space-x-2 -mt-5'>*/}
+            {/*        <Image className='w-12' src='https://whitebox.com/wp-content/uploads/2020/05/Prime-tag-.png' width={20} height={20}/>*/}
+            {/*        <p className='text-xs text-gray-500'>FREE Next-day delivery</p>*/}
+            {/*    </div>*/}
+            {/*)}*/}
+            <button className='mt-auto button'>Add to Basket</button>
         </div>
     )
 }
