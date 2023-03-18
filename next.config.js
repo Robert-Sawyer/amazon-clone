@@ -5,7 +5,8 @@ const nextConfig = {
     domains: [
         '1000logos.net',
         'links.papareact.com',
-        'fakestoreapi.com'
+        'fakestoreapi.com',
+        'whitebox.com',
     ],
   }
 }
