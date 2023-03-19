@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import Image from "next/image";
-import Currency from 'react-currency-formatter';
 import Rating from "./Rating/Rating";
 
 const Product = ({ id, title, description, price, category, image}) => {
@@ -31,7 +30,7 @@ const Product = ({ id, title, description, price, category, image}) => {
             <p className='text-xs my-2 line-clamp-2'>{description}</p>
 
             <div className='mb-5'>
-                <Currency quantity={price} currency='GBP'/>
+                <p>${price}</p>
             </div>
 
             {hasPrime && (
